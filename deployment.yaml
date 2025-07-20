@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: frontend-deployment
+    env: production
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: frontend-pod
+  template:
+    metadata:
+      labels:
+        app: frontend-pod
+    spec:
+      containers:
+      - image: jeralsandeeptha/ultimate-devops-project-frontend:latest
+        name: ultimate-devops-project-frontend
+        ports:
+        - containerPort: 80
