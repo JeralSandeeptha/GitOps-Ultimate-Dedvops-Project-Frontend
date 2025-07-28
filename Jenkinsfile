@@ -6,6 +6,9 @@ pipeline {
         GIT_TOKEN = 'jeral'
         GIT_USER = 'JeralSandeeptha'
         REPO = 'GitOps-Ultimate-Dedvops-Project-Frontend'  
+        DOCKER_USER = "jeralsandeeptha"
+        DOCKER_PASS = 'dockerhub'
+        IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
     }
 
     stages {
