@@ -26,14 +26,17 @@ pipeline {
         }
 
         stage('Update the Deployment Tags') {
-          steps {
-              powershell """
-                  Get-Content deployment.yaml
-                  (Get-Content deployment.yaml) -replace '${APP_NAME}:.*', '${APP_NAME}:${IMAGE_NAME}' | Set-Content deployment.yaml
-                  Get-Content deployment.yaml
-              """
-          }
-       } 
+            steps {
+                powershell """
+                    \$content = Get-Content deployment.yaml
+                    \$newTag = '${IMAGE_TAG}'
+                    \$pattern = 'jeralsandeeptha/ultimate-devops-project-frontend:1\\.0\\.0-[0-9]+'
+                    \$updated = \$content -replace \$pattern, \$newTag
+                    \$updated | Set-Content deployment.yaml
+                    Get-Content deployment.yaml
+                """
+            }
+        }
 
        stage('Push the changed deployment file to Git') {
             steps {
