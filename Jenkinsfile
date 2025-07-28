@@ -1,5 +1,5 @@
 pipeline {
-    agent: any
+    agent any;
 
     environment {
         APP_NAME = "ultimate-devops-project-frontend"
