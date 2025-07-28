@@ -16,7 +16,7 @@ spec:
         app: frontend-pod
     spec:
       containers:
-      - image: jeralsandeeptha/ultimate-devops-project-frontend:latest
+      - image: jeralsandeeptha/ultimate-devops-project-frontend:1.0.0-7
         name: ultimate-devops-project-frontend
         ports:
         - containerPort: 80
